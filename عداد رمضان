@@ -1,0 +1,105 @@
+# -2025-
+عداد يعد رمضان 2025 بالثواني والدقائق والايام والساعات بدقه وشكله جميل
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد رمضان</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffcc00, #ff6600);
+            text-align: center;
+            color: white;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .label {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        .ramadan-text {
+            font-size: 40px;
+            margin-top: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>الوقت المتبقي حتى رمضان</h1>
+        <div class="timer">
+            <div>
+                <div class="circle" id="days">--</div>
+                <div class="label">أيام</div>
+            </div>
+            <div>
+                <div class="circle" id="hours">--</div>
+                <div class="label">ساعات</div>
+            </div>
+            <div>
+                <div class="circle" id="minutes">--</div>
+                <div class="label">دقائق</div>
+            </div>
+            <div>
+                <div class="circle" id="seconds">--</div>
+                <div class="label">ثواني</div>
+            </div>
+        </div>
+        <div class="ramadan-text">رمضان كريم</div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const ramadanDate = new Date("March 1, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = ramadanDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
